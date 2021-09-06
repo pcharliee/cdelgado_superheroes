@@ -1,0 +1,24 @@
+.carousel-container {
+  .carousel-img-container {
+    display: flex;
+    flex-flow: row nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar { width: 1rem };
+  }
+  .carousel-buttons-container{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    .carousel-buttons {
+      display: flex;
+      flex-flow: row nowrap;
+      width: 15px;
+      height: 5px;
+      border-radius: 15px;
+      background-color: white;
+    }
+  }
+}
