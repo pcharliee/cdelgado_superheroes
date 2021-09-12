@@ -9,9 +9,9 @@ function HeroCard(props) {
     <div className='hero-card'>
       <Image
         img={img}
-        name={name} />
+        alt={name} />
       <div className='hero-card-title'>
-        <Title name={name} />
+        <Title text={name} />
       </div>
     </div>
   )

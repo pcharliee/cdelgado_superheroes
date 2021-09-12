@@ -1,9 +1,9 @@
 import React from 'react'
 
 function Title(props) {
-  const { name } = props;
+  const { text } = props;
   return (
-    <h2 className=''>{name}</h2>
+    <h2 className=''>{text}</h2>
   )
 };
 

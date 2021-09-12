@@ -1,12 +1,12 @@
 import React from 'react';
 
 function Image(props) {
-  const { img, name } = props;
+  const { img, alt } = props;
   return (
     <img 
       className='img'
       src={img}
-      alt={name} />
+      alt={alt} />
   )
 };
 
