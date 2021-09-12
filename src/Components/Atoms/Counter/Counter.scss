@@ -1,0 +1,28 @@
+.counter {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(209, 191, 191);
+  p {
+    text-align: center;
+    color: rgb(0, 0, 0);
+  }
+  .counter-buttons {
+    width: 80px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    button {
+      height: 20px;
+      width: 20px;
+      border-radius: 30px;
+      background: rgb(160, 45, 80);
+      border: none;
+      color: rgb(209, 191, 191);
+      font-weight: 600;
+    }
+  }
+}

@@ -38,7 +38,9 @@ function Carousel() {
       </div>
       <div className='carousel-buttons-container'>
       {images.map((image, index) => {
-          return <a className='carousel-buttons' href={`#${image.id}`} key={index}></a>
+          return <a className='carousel-buttons'
+                    href={`#${image.id}`} 
+                    key={index}></a>
           }
         )}
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ListItem from '../../../Atoms/ListItem/ListItem';
+import ListItem from '../../Atoms/ListItem/ListItem';
 import './HamburgerIcon.scss'
 
 function HamburgerIcon (props) {
@@ -18,7 +18,7 @@ function HamburgerIcon (props) {
         )}
       </ul>
     }
-  }
+  };
 
   return (
     <>
