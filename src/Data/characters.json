@@ -1,0 +1,351 @@
+[
+  {
+    "id": 644,
+    "name": "Superman",
+    "slug": "644-superman",
+    "powerstats": {
+      "intelligence": 94,
+      "strength": 100,
+      "speed": 100,
+      "durability": 100,
+      "power": 100,
+      "combat": 85
+    },
+    "appearance": {
+      "gender": "Male",
+      "race": "Kryptonian",
+      "height": [
+        "6'3",
+        "191 cm"
+      ],
+      "weight": [
+        "225 lb",
+        "101 kg"
+      ],
+      "eyeColor": "Blue",
+      "hairColor": "Black"
+    },
+    "biography": {
+      "fullName": "Clark Kent",
+      "alterEgos": "Superman Prime One-Million",
+      "aliases": [
+        "Clark Joseph Kent",
+        "The Man of Steel",
+        "the Man of Tomorrow",
+        "the Last Son of Krypton",
+        "Big Blue",
+        "the Metropolis Marvel",
+        "the Action Ace"
+      ],
+      "placeOfBirth": "Krypton",
+      "firstAppearance": "ACTION COMICS #1",
+      "publisher": "Superman Prime One-Million",
+      "alignment": "good"
+    },
+    "work": {
+      "occupation": "Reporter for the Daily Planet and novelist",
+      "base": "Metropolis"
+    },
+    "connections": {
+      "groupAffiliation": "Justice League of America, The Legion of Super-Heroes (pre-Crisis as Superboy); Justice Society of America (pre-Crisis Earth-2 version); All-Star Squadron (pre-Crisis Earth-2 version)",
+      "relatives": "Lois Lane (wife), Jor-El (father, deceased), Lara (mother, deceased), Jonathan Kent (adoptive father), Martha Kent (adoptive mother), Seyg-El (paternal grandfather, deceased), Zor-El (uncle, deceased), Alura (aunt, deceased), Supergirl (Kara Zor-El, cousin), Superboy (Kon-El/Conner Kent, partial clone)"
+    },
+    "images": {
+      "xs": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/644-superman.jpg",
+      "sm": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/644-superman.jpg",
+      "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/644-superman.jpg",
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/644-superman.jpg"
+    }
+  },
+  {
+    "id": 70,
+    "name": "Batman",
+    "slug": "70-batman",
+    "powerstats": {
+      "intelligence": 100,
+      "strength": 26,
+      "speed": 27,
+      "durability": 50,
+      "power": 47,
+      "combat": 100
+    },
+    "appearance": {
+      "gender": "Male",
+      "race": "Human",
+      "height": [
+        "6'2",
+        "188 cm"
+      ],
+      "weight": [
+        "210 lb",
+        "95 kg"
+      ],
+      "eyeColor": "blue",
+      "hairColor": "black"
+    },
+    "biography": {
+      "fullName": "Bruce Wayne",
+      "alterEgos": "No alter egos found.",
+      "aliases": [
+        "Insider",
+        "Matches Malone"
+      ],
+      "placeOfBirth": "Crest Hill, Bristol Township; Gotham County",
+      "firstAppearance": "Detective Comics #27",
+      "publisher": "DC Comics",
+      "alignment": "good"
+    },
+    "work": {
+      "occupation": "Businessman",
+      "base": "Batcave, Stately Wayne Manor, Gotham City; Hall of Justice, Justice League Watchtower"
+    },
+    "connections": {
+      "groupAffiliation": "Batman Family, Batman Incorporated, Justice League, Outsiders, Wayne Enterprises, Club of Heroes, formerly White Lantern Corps, Sinestro Corps",
+      "relatives": "Damian Wayne (son), Dick Grayson (adopted son), Tim Drake (adopted son), Jason Todd (adopted son), Cassandra Cain (adopted ward)\nMartha Wayne (mother, deceased), Thomas Wayne (father, deceased), Alfred Pennyworth (former guardian), Roderick Kane (grandfather, deceased), Elizabeth Kane (grandmother, deceased), Nathan Kane (uncle, deceased), Simon Hurt (ancestor), Wayne Family"
+    },
+    "images": {
+      "xs": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/70-batman.jpg",
+      "sm": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/70-batman.jpg",
+      "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/70-batman.jpg",
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/70-batman.jpg"
+    }
+  },
+  {
+    "id": 346,
+    "name": "Iron Man",
+    "slug": "346-iron-man",
+    "powerstats": {
+      "intelligence": 100,
+      "strength": 85,
+      "speed": 58,
+      "durability": 85,
+      "power": 100,
+      "combat": 64
+    },
+    "appearance": {
+      "gender": "Male",
+      "race": "Human",
+      "height": [
+        "6'6",
+        "198 cm"
+      ],
+      "weight": [
+        "425 lb",
+        "191 kg"
+      ],
+      "eyeColor": "Blue",
+      "hairColor": "Black"
+    },
+    "biography": {
+      "fullName": "Tony Stark",
+      "alterEgos": "No alter egos found.",
+      "aliases": [
+        "Iron Knight",
+        "Hogan Potts",
+        "Spare Parts Man",
+        "Cobalt Man II",
+        "Crimson Dynamo",
+        "Ironman"
+      ],
+      "placeOfBirth": "Long Island, New York",
+      "firstAppearance": "Tales of Suspence #39 (March, 1963)",
+      "publisher": "Marvel Comics",
+      "alignment": "good"
+    },
+    "work": {
+      "occupation": "Inventor, Industrialist; former United States Secretary of Defense",
+      "base": "Seattle, Washington"
+    },
+    "connections": {
+      "groupAffiliation": "Avengers, Illuminati, Stark Resilient; formerly S.H.I.E.L.D., leader of Stark Enterprises, the Pro-Registration Superhero Unit, New Avengers, Mighty Avengers, Hellfire Club, Force Works, Avengers West Coast, United States Department of Defense.",
+      "relatives": "Howard Anthony Stark (father, deceased), Maria Stark (mother, deceased), Morgan Stark (cousin), Isaac Stark (ancestor)"
+    },
+    "images": {
+      "xs": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/346-iron-man.jpg",
+      "sm": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/346-iron-man.jpg",
+      "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/346-iron-man.jpg",
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/346-iron-man.jpg"
+    }
+  },
+  {
+    "id": 149,
+    "name": "Captain America",
+    "slug": "149-captain-america",
+    "powerstats": {
+      "intelligence": 69,
+      "strength": 19,
+      "speed": 38,
+      "durability": 55,
+      "power": 60,
+      "combat": 100
+    },
+    "appearance": {
+      "gender": "Male",
+      "race": "Human",
+      "height": [
+        "6'2",
+        "188 cm"
+      ],
+      "weight": [
+        "240 lb",
+        "108 kg"
+      ],
+      "eyeColor": "blue",
+      "hairColor": "blond"
+    },
+    "biography": {
+      "fullName": "Steve Rogers",
+      "alterEgos": "No alter egos found.",
+      "aliases": [
+        "Nomad",
+        "The Captain"
+      ],
+      "placeOfBirth": "Manhattan, New York City, New York",
+      "firstAppearance": "Captain America Comics #1 (March 1941)",
+      "publisher": "Marvel Comics",
+      "alignment": "good"
+    },
+    "work": {
+      "occupation": "Adventurer, federal official, intelligence operative; former soldier, Hydra agent, liaison between S.H.I.E.L.D. and the Avengers, police officer, teacher, sparring partner.",
+      "base": "New York City"
+    },
+    "connections": {
+      "groupAffiliation": "Secret Avengers (Black OPS Unit Formerly,The Avengers, Secret Avengers (Civil War), New Avengers, formerly The Invaders, Secret Defenders The Redeemers; formerly partner of Bucky, Golden Girl, Rick Jones, Falcon, Demolition-Man and Nomad (Jack Monroe)",
+      "relatives": "Joseph (father, deceased), Sara (mother, deceased), Ian Zola (Nomad) (adopted son)"
+    },
+    "images": {
+      "xs": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/149-captain-america.jpg",
+      "sm": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/149-captain-america.jpg",
+      "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/149-captain-america.jpg",
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/149-captain-america.jpg"
+    }
+  },
+  {
+    "id": 107,
+    "name": "Black Widow",
+    "slug": "107-black-widow",
+    "powerstats": {
+      "intelligence": 75,
+      "strength": 13,
+      "speed": 33,
+      "durability": 30,
+      "power": 36,
+      "combat": 100
+    },
+    "appearance": {
+      "gender": "Female",
+      "race": "Human",
+      "height": [
+        "5'7",
+        "170 cm"
+      ],
+      "weight": [
+        "131 lb",
+        "59 kg"
+      ],
+      "eyeColor": "Green",
+      "hairColor": "Auburn"
+    },
+    "biography": {
+      "fullName": "Natasha Romanoff",
+      "alterEgos": "No alter egos found.",
+      "aliases": [
+        "Yelena Belova",
+        "Natasha Romanoff",
+        "Natasha",
+        "Tasha",
+        "Madame Natasha",
+        "Nancy Rushman",
+        "Laura Matthers",
+        "Nadine Roman",
+        "\"Oktober\"",
+        "Black Pearl",
+        "Ebon Flame"
+      ],
+      "placeOfBirth": "-",
+      "firstAppearance": "Tales of Suspense #52",
+      "publisher": "Marvel Comics",
+      "alignment": "good"
+    },
+    "work": {
+      "occupation": "Adventurer, Intelligence agent, former ballerina",
+      "base": "Mobile"
+    },
+    "connections": {
+      "groupAffiliation": "Secret Avengers; formerly Thunderbolts (as Yelena Belova), Nick Fury, Mighty Avengers, S.H.I.E.L.D., Avengers, Champions of Los Angeles, Lady Liberators, KGB, \"Marvel Knights\", partner of Daredevil, Hawkeye, Boris Turgenov, Logan",
+      "relatives": "Unnamed parents (presumed deceased); Alexi Shostakov (Red Guardian, estranged husband); Vindiktor (alleged brother, deceased)"
+    },
+    "images": {
+      "xs": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/107-black-widow.jpg",
+      "sm": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/107-black-widow.jpg",
+      "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/107-black-widow.jpg",
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/107-black-widow.jpg"
+    }
+  },
+  {
+    "id": 620,
+    "name": "Spider-Man",
+    "slug": "620-spider-man",
+    "powerstats": {
+      "intelligence": 90,
+      "strength": 55,
+      "speed": 67,
+      "durability": 75,
+      "power": 74,
+      "combat": 85
+    },
+    "appearance": {
+      "gender": "Male",
+      "race": "Human",
+      "height": [
+        "5'10",
+        "178 cm"
+      ],
+      "weight": [
+        "165 lb",
+        "74 kg"
+      ],
+      "eyeColor": "Hazel",
+      "hairColor": "Brown"
+    },
+    "biography": {
+      "fullName": "Peter Parker",
+      "alterEgos": "No alter egos found.",
+      "aliases": [
+        "Spiderman",
+        "Bag-Man",
+        "Black Marvel",
+        "Captain Universe",
+        "Dusk",
+        "Green Hood",
+        "Hornet",
+        "Mad Dog 336",
+        "Peter Palmer",
+        "Prodigy",
+        "Ricochet",
+        "Scarlet Spider",
+        "Spider-Boy",
+        "Spider-Hulk",
+        "Spider-Morphosis"
+      ],
+      "placeOfBirth": "New York, New York",
+      "firstAppearance": "Amazing Fantasy #15",
+      "publisher": "Marvel Comics",
+      "alignment": "good"
+    },
+    "work": {
+      "occupation": "Freelance photographer, teacher",
+      "base": "New York, New York"
+    },
+    "connections": {
+      "groupAffiliation": "Member of the Avengers, formerly member of Outlaws, alternate Fantastic Four",
+      "relatives": "Richard Parker (father, deceased), Mary Parker(mother, deceased), Benjamin Parker (uncle, deceased), May Parker (aunt), Mary Jane Watson-Parker (wife), May Parker (daughter, allegedly deceased)"
+    },
+    "images": {
+      "xs": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/620-spider-man.jpg",
+      "sm": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/620-spider-man.jpg",
+      "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/620-spider-man.jpg",
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/620-spider-man.jpg"
+    }
+  }
+]

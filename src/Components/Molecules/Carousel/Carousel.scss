@@ -4,6 +4,7 @@
     flex-flow: row nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
     &::-webkit-scrollbar { width: 1rem };
   }
   .carousel-buttons-container{
@@ -18,7 +19,10 @@
       width: 15px;
       height: 5px;
       border-radius: 15px;
-      background-color: white;
+      background-color: rgb(150, 150, 150);
+      &:active {
+        background-color: blue;
+      }
     }
   }
 }

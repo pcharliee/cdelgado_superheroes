@@ -1,4 +1,11 @@
 .carousel-image {
   width: 100vw;
   height: auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+.carousel-image.desktop {
+  // width: 60vw;
+  height: auto;
 }
