@@ -1,9 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ListItem.scss'
 
 function ListItem (props) {
+  const { url, text, handleClick } = props;
+  
+  const onListItemClick = () => {
+    handleClick();
+  };
+
   return (
-    <li className='list-item'>{props.text}</li>
+    <Link to={`/${url}`}>
+      <li className='list-item' onClick={onListItemClick}>{text}</li>
+    </Link>
   )
 };
 

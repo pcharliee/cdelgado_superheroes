@@ -9,15 +9,27 @@ function HamburgerIcon (props) {
     setShowMenu(prevState => !prevState);
   };
 
+  const handleClick = () => {
+    toggleMenu();
+  };
+
   const renderList = () => {
     if (showMenu) {
-      return <ul className='list-item-container'>
-        {props.links.map((link, index) => {
-          return <ListItem key={index} text={link}/>
-          }
-        )}
-      </ul>
-    }
+      return (
+        <ul className='list-item-container'>
+          {props.links.map((link, index) => {
+            return (
+              <ListItem
+               key={index}
+               text={link.text}
+               handleClick={handleClick}
+               url={link.url} />
+              )
+            }
+          )}
+        </ul>
+      )
+    };
   };
 
   return (

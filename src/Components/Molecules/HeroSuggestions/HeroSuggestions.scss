@@ -1,0 +1,11 @@
+.hero-suggestions-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  overflow: auto;
+  max-height: 318px;
+  width: 225px;
+  gap: 3px;
+  background-color: #af070f;
+  z-index: 0;
+}
