@@ -6,9 +6,9 @@ import './NavBar.scss';
 
 function NavBar () {
   const menuLinks = [
-    'Super Coach',
-    'Academia',
-    'Tienda'
+    { url: 'super-coach' ,text: 'Super Coach' },
+    { url: 'academia' ,text: 'Academia' },
+    { url: 'tienda' ,text: 'Tienda' },
   ];
 
   return (

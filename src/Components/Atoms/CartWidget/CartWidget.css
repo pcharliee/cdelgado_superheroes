@@ -1,5 +1,5 @@
 .cart-widget {
-  background-image: url('../../../Misc/Icons/cart.png');
+  background-image: url("../../../Misc/Icons/cart.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -7,3 +7,4 @@
   height: 30px;
   cursor: pointer;
 }
+/*# sourceMappingURL=CartWidget.css.map */

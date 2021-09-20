@@ -1,4 +1,5 @@
 .hero-card {
+  a { text-decoration: none;};
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -6,6 +7,7 @@
   width: 200px;
   background-color: rgb(140, 56, 46);
   border-radius: 5px;
+  position: relative;
   img {
     width: 200px;
   }
@@ -16,5 +18,24 @@
     font-size: 1rem;
     margin: 30px 0;
     color: rgb(255, 255, 255);
+  }
+}
+
+
+.hero-card.back {
+  a {
+    text-decoration: none;
+  }
+  color: white;
+}
+
+.hero-stats-container{
+  display: flex;
+  flex-flow: row nowrap;
+  .hero-stat {
+    border-radius: 50%;
+    background: blue;
+    width: 10px;
+    height: 10px;
   }
 }
