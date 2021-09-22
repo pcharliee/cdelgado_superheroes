@@ -1,6 +1,13 @@
 .btn {
-  border: blue;
-  position: absolute;
-  bottom: 10px;
-  z-index: 299;
+  border: none;
+  height: 35px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &.add-to {
+    background-color: transparent;
+    color: rgb(0, 150, 106);
+    border: 1px solid;
+    border-color:rgb(0, 150, 106);
+  }
 }

@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NavBar from '../Organisms/NavBar/NavBar.jsx';
 import Carousel from '../Molecules/Carousel/Carousel';
 import HeroCards from '../Organisms/HeroCards/HeroCards';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Counter from '../Atoms/Counter/Counter';
 import Loading from '../Atoms/Loading/Loading.jsx';
+import HeroDetails from '../Organisms/HeroDetails/HeroDetails.jsx';
+import NotFound from '../Organisms/NotFound/NotFound.jsx';
 import './App.scss';
-import HeroDetails from '../Organisms/HeroDetails/HeroDetails.jsx'
-import HeroCard from '../Molecules/HeroCard/HeroCard.jsx';
 
 
 function App() {
@@ -37,7 +36,9 @@ function App() {
               <HeroCards characters={characters} />
             </Route>
             <Route exact path='/super-coach/:id' component={HeroDetails} />
-            <Route exact path='/*' component={HeroDetails} />
+            <Route exact path='/*'>
+              <NotFound text='404 - No se ha encontrado nada' />
+            </Route>
           </Switch>
         }
       </div>

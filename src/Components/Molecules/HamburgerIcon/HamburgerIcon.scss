@@ -62,6 +62,7 @@
   justify-content: space-around;
   align-items: center;
   z-index: 9999;
+  gap: 3px;
   animation: toggleMenu 200ms ease-in-out 0ms;
   a {
     width: 90%;

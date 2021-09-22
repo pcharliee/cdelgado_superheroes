@@ -3,8 +3,18 @@
   flex-flow: column nowrap;
   gap: 20px;
   align-items: center;
-  input {
-    padding: 5px 0 5px 10px;
-    width: 220px;
+
+  .hero-cards-search-bar {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    margin-top: 10px;
+    label {
+      color: rgb(255, 255, 255)
+    }
+    input {
+      padding: 5px 0 5px 10px;
+      width: 220px;
+    }
   }
 }
