@@ -1,8 +1,52 @@
 .hero-details-container {
-  h2 {
-    position: fixed;
-    top: 50vh;
-    left: 30vw;
-    color: rgb(255, 255, 255)
+  padding: 20px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+  // border: 1px red solid;
+  img {
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+  }
+  p {
+    font-size: 0.8rem;
+    text-align: left;
+  }
+
+  .hero-details-img-bio-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .hero-details-bio-container {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 150px;
+    color: rgb(255, 255, 255);
+    h2 { text-align: center;}
+  }
+
+  .hero-details-additional {
+    position: relative;
+    height: 280px;
+
+    .hero-details-additional-bio {
+      overflow: scroll;
+      max-height: 230px;
+      h5 {
+        text-decoration: underline;
+      }
+    }
+    button {
+      position: absolute;
+      bottom: 0px;
+      right: 10px;
+    }
   }
 }
+
+// *{border: 1px red dotted}

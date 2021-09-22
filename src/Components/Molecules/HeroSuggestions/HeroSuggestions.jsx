@@ -26,7 +26,7 @@ function HeroSuggestions(props) {
 
   return (
     <section className='hero-suggestions-container'>
-      {renderHeroSuggestions()}
+      { renderHeroSuggestions() }
     </section>
   );
 };
