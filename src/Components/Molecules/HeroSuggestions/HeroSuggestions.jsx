@@ -3,7 +3,7 @@ import HeroSuggestionItem from '../HeroSuggestionItem/HeroSuggestionItem';
 import './HeroSuggestions.scss';
 
 function HeroSuggestions(props) {
-  const { searchSuggestions, showSelection } = props;
+  const { searchSuggestions, showSelection = {} } = props;
   
   const handleClick = (id) => {
     showSelection(id);

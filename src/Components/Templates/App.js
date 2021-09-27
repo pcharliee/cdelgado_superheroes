@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { CartProvider } from '../../Context/CartContext.js';
 import NavBar from '../Organisms/NavBar/NavBar.jsx';
 import Carousel from '../Molecules/Carousel/Carousel';
 import HeroCards from '../Organisms/HeroCards/HeroCards';
@@ -7,7 +8,6 @@ import Loading from '../Atoms/Loading/Loading.jsx';
 import HeroDetails from '../Organisms/HeroDetails/HeroDetails.jsx';
 import NotFound from '../Organisms/NotFound/NotFound.jsx';
 import './App.scss';
-
 
 function App() {
   const [ characters, setCharacters ] = useState([])
@@ -24,11 +24,12 @@ function App() {
   }, []);
 
   return (
+    <CartProvider>
     <BrowserRouter>
       <div className="App">
         <NavBar />
-        {loading && <Loading />}
-        {!loading &&
+        { loading && <Loading />}
+        { !loading &&
           <Switch>
             <Route exact path='/' component={Carousel} />
             <Route exact path='/carousel' component={Carousel} />
@@ -42,7 +43,8 @@ function App() {
           </Switch>
         }
       </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </CartProvider> 
   );
 };
 
