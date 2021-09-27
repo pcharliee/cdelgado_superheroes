@@ -17,7 +17,12 @@ function CartWidget () {
           showSelection={() => {}}
           searchSuggestions={cartItems} />
         <Link to='/cart'>
-          <Button text='Go to cart' type='checkout'/>
+          <Button 
+            text='Go to cart'
+            type='checkout'
+            onClick={() => {
+              setShowCurrentCart(prevState => !prevState);
+            }}/>
         </Link>
       </div>
     )
@@ -29,7 +34,7 @@ function CartWidget () {
       <div 
         className='cart-widget'
         onClick={() => {
-          setShowCurrentCart(prevState => !prevState)
+          setShowCurrentCart(prevState => !prevState);
         }}>
         <p>{ cartItems.length }</p>
       </div>

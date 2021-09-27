@@ -6,6 +6,7 @@ import Carousel from '../Molecules/Carousel/Carousel';
 import HeroCards from '../Organisms/HeroCards/HeroCards';
 import Loading from '../Atoms/Loading/Loading.jsx';
 import HeroDetails from '../Organisms/HeroDetails/HeroDetails.jsx';
+import Cart from '../Organisms/Cart/Cart.jsx';
 import NotFound from '../Organisms/NotFound/NotFound.jsx';
 import './App.scss';
 
@@ -37,6 +38,7 @@ function App() {
               <HeroCards characters={characters} />
             </Route>
             <Route exact path='/super-coach/:id' component={HeroDetails} />
+            <Route exact path='/cart' component={Cart} />
             <Route exact path='/*'>
               <NotFound text='404 - No se ha encontrado nada' />
             </Route>
