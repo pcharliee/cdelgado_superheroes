@@ -1,0 +1,26 @@
+.cart-widget {
+  background-image: url('../../../Misc/Icons/cart.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 45px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.cart-widget-items-container {
+  position: absolute;
+  right: 10px;
+  top: 65px;
+  .hero-suggestions-container {
+    max-height: 212px;
+  }
+  button {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+  }
+}

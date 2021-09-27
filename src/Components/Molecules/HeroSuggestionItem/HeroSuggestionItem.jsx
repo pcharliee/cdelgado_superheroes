@@ -5,7 +5,7 @@ import './HeroSuggestionItem.scss'
 
 function HeroSuggestionItem(props) {
   const { img, alt, text, publisher } = props;
-  
+
   return (
     <div className='hero-suggestion'>
       <Image img={img} alt={alt} />

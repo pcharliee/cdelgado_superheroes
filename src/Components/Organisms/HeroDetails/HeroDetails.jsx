@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useCart } from '../../../Context/CartContext';
 import Image from '../../Atoms/Image/Image';
 import Title from '../../Atoms/Title/Title';
 import Loading from '../../Atoms/Loading/Loading';
@@ -9,6 +10,7 @@ import './HeroDetails.scss';
 function HeroDetails() {
   const [ heroDetails, setHeroDetails ] = useState(null);
   const [ loading, setLoading ] = useState(false);
+  const { cartItems, setCartItems } = useCart();
 
   const { id } = useParams();
 
@@ -19,6 +21,10 @@ function HeroDetails() {
       .then(data => setHeroDetails(data))
       .finally(() => { setLoading(prevState => !prevState) })
   }, [id]);
+
+  const handleAddClick = () => {
+    setCartItems(prevState => [...prevState, heroDetails] )
+  };
 
   return (
     <>
@@ -41,7 +47,10 @@ function HeroDetails() {
               <h5>Base:</h5><p>{heroDetails?.work.base}</p>
               <h5>Ocupación:</h5><p>{heroDetails?.work.occupation}</p>
             </div>
-          <Button text='Agregar al carrito' type='add-to'/>
+          <Button
+            text='Agregar al carrito'
+            type='add-to'
+            onClick={handleAddClick} />
           </div>
         </section>
       }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { CartContext, CartProvider } from '../../Context/CartContext.js';
+import { CartProvider } from '../../Context/CartContext.js';
 import NavBar from '../Organisms/NavBar/NavBar.jsx';
 import Carousel from '../Molecules/Carousel/Carousel';
 import HeroCards from '../Organisms/HeroCards/HeroCards';
@@ -9,11 +9,9 @@ import HeroDetails from '../Organisms/HeroDetails/HeroDetails.jsx';
 import NotFound from '../Organisms/NotFound/NotFound.jsx';
 import './App.scss';
 
-
 function App() {
   const [ characters, setCharacters ] = useState([])
   const [ loading, setLoading ] = useState(false);
-  const [ cartItems, setCartItems ] = useState([1,2,3,4])
   
   useEffect(() => {
     setLoading(prevState => !prevState);
@@ -26,12 +24,12 @@ function App() {
   }, []);
 
   return (
+    <CartProvider>
     <BrowserRouter>
-    <CartContext.Provider value={cartItems}>
       <div className="App">
         <NavBar />
-        {loading && <Loading />}
-        {!loading &&
+        { loading && <Loading />}
+        { !loading &&
           <Switch>
             <Route exact path='/' component={Carousel} />
             <Route exact path='/carousel' component={Carousel} />
@@ -45,8 +43,8 @@ function App() {
           </Switch>
         }
       </div>
-    </CartContext.Provider> 
       </BrowserRouter>
+    </CartProvider> 
   );
 };
 

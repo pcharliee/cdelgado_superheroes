@@ -1,4 +1,4 @@
-export default function getCharacter (id) {
+export function getCharacter (id) {
   return Promise.resolve({})
   .then(payload => {
     return fetch(`https://akabab.github.io/superhero-api/api/id/${id}.json`)
