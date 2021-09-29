@@ -7,7 +7,6 @@ import './HeroCards.scss';
 
 function HeroCards(props) {
   const { characters } = props;
-
   const [ character, setCharacter ] = useState([]);
   const [ selectedCards, setSelectedCards ] = useState([]);
   const textInput = useRef();

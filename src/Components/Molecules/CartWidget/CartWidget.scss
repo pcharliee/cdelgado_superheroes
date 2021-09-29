@@ -12,8 +12,15 @@
   position: absolute;
   right: 10px;
   top: 65px;
+  background: rgb(255, 255, 255);
   .hero-suggestions-container {
     max-height: 212px;
+  }
+  .cart-widget-items-text {
+    box-sizing: content-box;
+    padding: 10px;
+    color:rgb(0, 0, 0);
+    font-size: 1rem;
   }
   button {
     display: flex;

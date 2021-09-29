@@ -4,7 +4,6 @@
   display: flex;
   flex-flow: column nowrap;
   gap: 10px;
-  // border: 1px red solid;
   img {
     width: 150px;
     height: auto;
@@ -41,7 +40,7 @@
         text-decoration: underline;
       }
     }
-    button {
+    button[text="Agregar al carrito"] {
       position: absolute;
       bottom: 0px;
       right: 10px;

@@ -1,25 +1,42 @@
 import React, { useState } from 'react';
+import Button from '../Button/Button';
 import './Counter.scss';
 
-function Counter() {
-  const [count, setCount] = useState(1);
+function Counter(props) {
+  const [ itemDetails, setItemDetails ] = useState({ 
+    count: props.item.quantity,
+    price: props.item.price
+  });
+
+  const unitPrice = props.item.price;
 
   const handleMinusClick = () => {
-    if (count <= 1) return;
-    setCount(prevState => prevState - 1);
+    if (itemDetails.count <= 1) return;
+    setItemDetails({
+      count: itemDetails.count - 1,
+      price: itemDetails.price - unitPrice
+    });
+    props.setPrice(prevState => prevState - unitPrice);
   };
 
   const handlePlusClick = () => {
-    if (count >= 10) return;
-    setCount(prevState => prevState + 1);
+    setItemDetails({
+      count: itemDetails.count + 1,
+      price: unitPrice * (itemDetails.count + 1)
+    });
+    props.setPrice(prevState => prevState + unitPrice);
   };
 
   return (
-    <div className='counter'>
-     <p>Random Count: {count}</p>
-      <div className='counter-buttons'>
-        <button onClick={handleMinusClick}>-</button>
-        <button onClick={handlePlusClick}>+</button>
+    <div className='counter-buttons-container'>
+      <div className="counter-item-details">
+        <p>Unit price: {unitPrice}</p>
+        <p>Price: {itemDetails.price}</p>
+      </div>
+      <div className="counter-buttons">
+        <Button text="-" onClick={handleMinusClick} />
+          <p>{itemDetails.count}</p>
+        <Button text="+" onClick={handlePlusClick} />
       </div>
     </div>
   );

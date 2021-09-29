@@ -9,6 +9,16 @@ function CartWidget () {
   const { cartItems } = useCart();
   const [ showCurrentCart, setShowCurrentCart ] = useState(false);
 
+
+  // const renderEmptyCart = () => {
+  //   if (!showCurrentCart || cartItems.length ) return;
+  //   return (
+  //     <div className='cart-widget-items-container'>
+  //       <p className='cart-widget-items-text'>You have no items</p>
+  //     </div>
+  //   )
+  // }
+  
   const renderCurrentCart = () => {
     if (!showCurrentCart || !cartItems.length ) return;
     return (
@@ -30,12 +40,11 @@ function CartWidget () {
 
   return (
     <>
+    {/* { renderEmptyCart() } */}
     { renderCurrentCart() }
-      <div 
-        className='cart-widget'
-        onClick={() => {
-          setShowCurrentCart(prevState => !prevState);
-        }}>
+      <div className='cart-widget' onClick={() => {
+        setShowCurrentCart(prevState => !prevState);
+      }}>
         <p>{ cartItems.length }</p>
       </div>
     </>

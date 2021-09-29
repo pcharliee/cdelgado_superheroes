@@ -5,11 +5,12 @@ function Button(props) {
   const {
     text,
     type = '',
-    onClick 
+    onClick,
+    disabled = false,
   } = props;
 
   return (
-    <button className={`btn ${type}`} onClick={onClick}>
+    <button className={`btn ${type}`} onClick={onClick} disabled={disabled}>
       {text}
     </button>
   );
