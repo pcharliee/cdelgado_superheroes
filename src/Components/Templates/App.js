@@ -7,6 +7,7 @@ import HeroCards from '../Organisms/HeroCards/HeroCards';
 import Loading from '../Atoms/Loading/Loading.jsx';
 import HeroDetails from '../Organisms/HeroDetails/HeroDetails.jsx';
 import Cart from '../Organisms/Cart/Cart.jsx';
+import Academy from '../Organisms/Academy/Academy.jsx';
 import NotFound from '../Organisms/NotFound/NotFound.jsx';
 import './App.scss';
 
@@ -19,6 +20,9 @@ function App() {
     fetch('https://akabab.github.io/superhero-api/api/all.json')
       .then(response => response.json())
       .then(data => {
+        data.map(item => {
+          return Object.assign(item, { quantity: 1, price: item.powerstats.strength })
+        });
         setCharacters(data);
         setLoading(prevState => !prevState);
         });
@@ -36,6 +40,9 @@ function App() {
             <Route exact path='/carousel' component={Carousel} />
             <Route exact path='/super-coach'>
               <HeroCards characters={characters} />
+            </Route>
+            <Route exact path='/academia'>
+              <Academy characters={characters} />
             </Route>
             <Route exact path='/super-coach/:id' component={HeroDetails} />
             <Route exact path='/cart' component={Cart} />

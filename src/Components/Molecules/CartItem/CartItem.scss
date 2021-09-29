@@ -1,0 +1,32 @@
+.cart-item-container {
+  border: 1px red solid;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  border-radius: 5px;
+  .cart-item-details-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 100%;
+    .cart-item-remove-icon {
+      background: red;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      text-align: center;
+    }
+  }
+  h2 { 
+    margin: 0;
+    font-size: 14px;
+    text-align: right;
+  }
+  img {
+    border-radius: 5px 0 0 5px;
+    height: 100px;
+    width: auto;
+  }
+}

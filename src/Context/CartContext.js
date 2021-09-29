@@ -3,7 +3,7 @@ import { createContext, useState, useContext } from "react";
 export const CartContext = createContext([]);
 
 export const CartProvider = ({ children }) => {
-  const [ cartItems, setCartItems ] = useState([])
+  const [ cartItems, setCartItems ] = useState([]);
 
   return (
     <CartContext.Provider value={{ cartItems, setCartItems }}>

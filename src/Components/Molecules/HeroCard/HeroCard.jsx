@@ -7,16 +7,12 @@ import './HeroCard.scss';
 function HeroCard(props) {
   const { character } = props;
   const {
-    id,
+    // id,
     images,
     appearance,
     name,
-    powerstats,
+    // powerstats,
   } = character;
-
-  const handleGetHeroDetails = () => {
-    // getHeroDetails(character.id);
-  };
 
   /********** WORK IN PROGRESS ***********/ 
 
