@@ -8,6 +8,14 @@ import './CartWidget.scss';
 function CartWidget () {
   const { cartItems } = useCart();
   const [ showCurrentCart, setShowCurrentCart ] = useState(false);
+
+  const updatedCartQuantity = () => {
+    let newQuantity = 0;
+    cartItems.forEach(item => {
+      newQuantity += item.quantity
+    })
+   return newQuantity;
+  }
   
   const renderCurrentCart = () => {
     if (!showCurrentCart || !cartItems.length ) return;
@@ -34,7 +42,7 @@ function CartWidget () {
       <div className='cart-widget' onClick={() => {
         setShowCurrentCart(prevState => !prevState);
       }}>
-        <p>{ cartItems.length }</p>
+        <p>{ updatedCartQuantity() }</p>
       </div>
     </>
   )
