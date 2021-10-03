@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../../../Context/CartContext';
 import HeroCard from '../../Molecules/HeroCard/HeroCard';
 import HeroSuggestions from '../../Molecules/HeroSuggestions/HeroSuggestions';
 import NotFound from '../../Organisms/NotFound/NotFound.jsx';
@@ -7,8 +8,9 @@ import './HeroCards.scss';
 
 function HeroCards(props) {
   const { characters } = props;
+  const { cartItems } = useCart();
   const [ character, setCharacter ] = useState([]);
-  const [ selectedCards, setSelectedCards ] = useState([]);
+  const [ selectedCards, setSelectedCards ] = useState(cartItems || []);
   const textInput = useRef();
 
   const searchHeroByKeyword = (keyword) => {
@@ -34,7 +36,7 @@ function HeroCards(props) {
         ? uniqueCards = selectedCards
         : uniqueCards = [...selectedCards, c];
       return uniqueCards;
-    })
+    });
     textInput.current.value = null;
     setCharacter([]);
     setSelectedCards(uniqueCards);

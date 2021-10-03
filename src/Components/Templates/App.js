@@ -10,6 +10,7 @@ import Cart from '../Organisms/Cart/Cart.jsx';
 import Academy from '../Organisms/Academy/Academy.jsx';
 import NotFound from '../Organisms/NotFound/NotFound.jsx';
 import './App.scss';
+import { getFirestore } from '../../firebase/index.js';
 
 function App() {
   const [ characters, setCharacters ] = useState([])
@@ -27,6 +28,12 @@ function App() {
         setLoading(prevState => !prevState);
         });
   }, []);
+
+  const db = getFirestore();
+  const heroesCollection = db.collection('heroes');
+  console.log('hero', heroesCollection.get().then(querySnapshot => {
+    console.log(querySnapshot)
+  }))
 
   return (
     <CartProvider>
