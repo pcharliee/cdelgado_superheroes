@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useCart } from '../../../Context/CartContext';
 import Button from '../Button/Button';
 import './Counter.scss';
 
 function Counter(props) {
+  const { cartItems, setCartItems } = useCart();
   const [ itemDetails, setItemDetails ] = useState({ 
     count: props.item.quantity,
     price: props.item.price
@@ -11,19 +13,33 @@ function Counter(props) {
   const unitPrice = props.item.price;
 
   const handleMinusClick = () => {
+    let newCount = itemDetails.count -1;
+    let newPrice = itemDetails.price - unitPrice;
     if (itemDetails.count <= 1) return;
     setItemDetails({
-      count: itemDetails.count - 1,
-      price: itemDetails.price - unitPrice
+      count: newCount,
+      price: newPrice
     });
+    const updatedCartItems = cartItems.map(item => {
+      if (item.id === props.item.id) Object.assign(item, { quantity: newCount })
+      return item;
+    })
+    setCartItems(updatedCartItems);
     props.setPrice(prevState => prevState - unitPrice);
   };
 
   const handlePlusClick = () => {
+    let newCount = itemDetails.count + 1;
+    let newPrice = itemDetails.price + unitPrice;
     setItemDetails({
-      count: itemDetails.count + 1,
-      price: unitPrice * (itemDetails.count + 1)
+      count: newCount,
+      price: newPrice
     });
+    const updatedCartItems = cartItems.map(item => {
+      if (item.id === props.item.id) Object.assign(item, { quantity: newCount })
+      return item;
+    });
+    setCartItems(updatedCartItems);
     props.setPrice(prevState => prevState + unitPrice);
   };
 
@@ -31,7 +47,7 @@ function Counter(props) {
     <div className='counter-buttons-container'>
       <div className="counter-item-details">
         <p>Unit price: {unitPrice}</p>
-        <p>Price: {itemDetails.price}</p>
+        <p>Price: {props.item.price * itemDetails.count}</p>
       </div>
       <div className="counter-buttons">
         <Button text="-" onClick={handleMinusClick} />

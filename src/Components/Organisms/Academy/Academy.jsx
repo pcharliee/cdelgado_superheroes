@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import HeroCard from '../../Molecules/HeroCard/HeroCard';
 import Button from '../../Atoms/Button/Button';
+import './Academy.scss';
 
 function Academy(props) {
   const [heroSection, setHeroSection] = useState(props.characters)
 
   const changeHeroSection = (category) => {
     const newSection = props.characters.filter(item => {
-      return item.biography.publisher == category
+      return item.biography.publisher === category
     })
-    setHeroSection(newSection)
+    setHeroSection(newSection);
   };
 
   const renderCard = () => {
@@ -20,15 +21,15 @@ function Academy(props) {
           i++;
        return (
         <Link to={`super-coach/${card.id}`} key={card.id}>
-            <HeroCard character={card} />
-          </Link>
+          <HeroCard character={card} />
+        </Link>
        ) 
       }
     });
   };
 
   return (
-    <div>
+    <div className='academy-cards-container'>
       <Button text="Marvel Comics" onClick={() => changeHeroSection('Marvel Comics')}/>
       <Button text="DC Comics" onClick={() => changeHeroSection('DC Comics')}/>
       { renderCard() }

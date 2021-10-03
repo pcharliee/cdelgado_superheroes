@@ -26,7 +26,8 @@ function Cart() {
   useEffect(() => {
     var currentPrice = 0;
     cartItems?.map(item => {
-      return currentPrice += item.price;
+      console.log('item', item)
+      return currentPrice += (item.price * item.quantity);
     });
     setPrice(currentPrice);
     // document.addEventListener("keydown", closeModal, false);
@@ -44,7 +45,7 @@ function Cart() {
     setCartItems(filteredItems);
   };
 
-  const renderCartCheckout = () => {
+  const renderCartItems = () => {
     return cartItems?.map(item => {
       return (
         <CartItem
@@ -56,16 +57,31 @@ function Cart() {
     });
   };
 
+  const renderEmptyCart = () => {
+    if (cartItems.length) return;
+    return (
+      <h3>No items in the cart =( <br/> Go back to add items</h3>
+    )
+  };
+
   const closeCart = () => {
     history.push('/super-coach')
-  }
+  };
+
+  const checkoutCart = () => {
+    let checkout = window.confirm(`Are you done shopping? Total price is USD$ ${price}`);
+    if (checkout) 
+      setCartItems([])
+  };
 
   return (
     <div className='cart-items-container'>
       <Title text="Tu carrito"/>
-      { renderCartCheckout() }
+      { renderEmptyCart() }
+      { renderCartItems() }
       <p>Total: {price}</p>
       <Button text='Close Cart' onClick={closeCart}/>
+      { !!cartItems.length && <Button text='Proceed to checkout' type='add-to' onClick={checkoutCart}/>}
     </div>
   );
 };

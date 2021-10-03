@@ -30,7 +30,10 @@ function HeroDetails() {
   const handleAddClick = (id) => {
     let alreadyExists = false;
     cartItems.forEach(item => {
-      if (item.id == id) alreadyExists = true;
+      if (item.id == id) {
+        alert('Item already in the cart');
+        alreadyExists = true;
+      }
     });
     if (!alreadyExists) 
       setCartItems(prevState => [...prevState, heroDetails]);
@@ -69,7 +72,7 @@ function HeroDetails() {
             text='Agregar al carrito'
             type='add-to'
             disabled={disabled}
-            onClick={() => handleAddClick(heroDetails.id)} />
+            onClick={ () => handleAddClick(heroDetails.id) } />
           </div>
         </section>
       }
