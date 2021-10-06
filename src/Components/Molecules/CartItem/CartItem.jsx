@@ -14,7 +14,7 @@ function CartItem(props) {
       <Image img={props.item.images.md} alt={props.item.name} />
         <div className='cart-item-details-container'>
           <Title text={props.item.name} />
-          <Counter item={props.item} setPrice={props.setPrice}/>
+          <Counter item={props.item} />
           <p className='cart-item-remove-icon' onClick={handleClick}>X</p>
         </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useCart } from '../../../Context/CartContext';
+import { getFirestore } from '../../../firebase/index.js';
 import Image from '../../Atoms/Image/Image';
 import Title from '../../Atoms/Title/Title';
 import Loading from '../../Atoms/Loading/Loading';
@@ -18,13 +19,12 @@ function HeroDetails() {
 
   useEffect(() => {
     setLoading(prevState => !prevState);
-    fetch(`https://akabab.github.io/superhero-api/api/id/${id}.json`)
-      .then(response => response.json())
-      .then(data => {
-        let hero = Object.assign(data, { quantity: 1, price: data.powerstats.strength })
-        setHeroDetails(hero)
-      })
-      .finally(() => { setLoading(prevState => !prevState) })
+    const db = getFirestore();
+    const heroesCollection = db.collection('heroes');
+    const hero = heroesCollection.doc(id)
+      hero.get()
+      .then(doc => setHeroDetails(doc.data()))
+      setLoading(prevState => !prevState)
   }, [id]);
 
   const handleAddClick = (id) => {

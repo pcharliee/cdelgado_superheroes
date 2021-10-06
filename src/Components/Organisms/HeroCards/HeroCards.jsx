@@ -51,7 +51,7 @@ function HeroCards(props) {
   const renderCard = () => {
     return selectedCards?.map(card => {
       return (
-        <Link to={`super-coach/${card.id}`} key={card.id}>
+        <Link to={`super-coach/${card._id}`} key={card.id}>
           <HeroCard character={card} />
         </Link>
       ) 
