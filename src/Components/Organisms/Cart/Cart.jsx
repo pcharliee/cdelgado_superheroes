@@ -1,42 +1,19 @@
-import React, { useEffect, useCallback, useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useCart } from '../../../Context/CartContext';
 import { useHistory } from 'react-router';
+import { getFirestore } from '../../../firebase/index.js';
 import Title from '../../Atoms/Title/Title';
 import CartItem from '../../Molecules/CartItem/CartItem';
-import './Cart.scss';
 import Button from '../../Atoms/Button/Button';
+import Loading from '../../Atoms/Loading/Loading';
+import './Cart.scss';
 
 function Cart() {
-  const { cartItems, setCartItems } = useCart();
-  const [ price, setPrice ] = useState(() => {
-    if(!cartItems.length) return 0;
-    var currentPrice = 0;
-    cartItems?.map(item => {
-      return currentPrice += item.price;
-    });
-    return currentPrice;
-  })
+  const { cartItems, setCartItems, price, setPrice } = useCart();
+  const [ newOrder, setNewOrder ] = useState({});
   const history = useHistory();
-
-  const closeModal = useCallback((event) => {
-    const modalWindow = document.getElementsByClassName("cart-items-container");
-    // if (event.target != modalWindow[0]) history.push('/super-coach');
-  }, []);
-
-  useEffect(() => {
-    var currentPrice = 0;
-    cartItems?.map(item => {
-      console.log('item', item)
-      return currentPrice += (item.price * item.quantity);
-    });
-    setPrice(currentPrice);
-    // document.addEventListener("keydown", closeModal, false);
-    // document.addEventListener("click", closeModal, false);
-    // return () => {
-    //    document.removeEventListener("keydown", closeModal, false);
-    //   document.removeEventListener("click", closeModal, false);
-    // };
-  }, [cartItems]);
+  let nameRef = useRef(null);
+  let mailRef = useRef(null);
 
   const handleRemoveItem = (id) => {
     let filteredItems = cartItems.filter(item => {
@@ -51,28 +28,58 @@ function Cart() {
         <CartItem
           key={item.id}
           item={item}
-          handleRemoveItem={handleRemoveItem}
-          setPrice={setPrice} />
+          handleRemoveItem={handleRemoveItem} />
       )
     });
   };
 
   const renderEmptyCart = () => {
     if (cartItems.length) return;
-    return (
-      <h3>No items in the cart =( <br/> Go back to add items</h3>
-    )
+    return <h3>No items in the cart =( <br/> Go back to add items</h3>
   };
 
   const closeCart = () => {
-    history.push('/super-coach')
+    history.push('/super-coach');
   };
+  const checkoutCart = (e) => {
+    e.preventDefault();
+    return Promise.resolve({})
+      .then(() => {
+        let name = nameRef.current.value.toString();
+        let email = mailRef.current.value.toString();
+        let currentOrder = { 
+          buyer: { 
+            name: name,
+            email: email,
+          },
+          items: cartItems,
+          totalPrice: price,
+          date: new Date().toLocaleDateString()
+        }
+        setNewOrder(currentOrder);
+        checkoutCartSuccess(currentOrder);
+      })
+    };
 
-  const checkoutCart = () => {
-    let checkout = window.confirm(`Are you done shopping? Total price is USD$ ${price}`);
-    if (checkout) 
-      setCartItems([])
-  };
+    const checkoutCartSuccess = (newOrder) => {
+      const db = getFirestore();
+      const ordersCollection = db.collection("orders");
+      ordersCollection
+        .add(newOrder)
+        .then((docRef) => {
+          return docRef
+        })
+        .then(docRef => {
+          let items = cartItems.map(item => {
+            return item.name;
+          });
+          let orderId = docRef.id;
+          window.alert(`${newOrder.buyer.name} Thank you for shopping. You've bought "${items.join(', ')}" for USD$ ${price}. You will receive further information on your email ${newOrder.buyer.email} your Order ID is: ${orderId}...`)
+        })
+        .then(() => {
+          setCartItems([]);
+        });
+      };
 
   return (
     <div className='cart-items-container'>
@@ -81,7 +88,17 @@ function Cart() {
       { renderCartItems() }
       <p>Total: {price}</p>
       <Button text='Close Cart' onClick={closeCart}/>
-      { !!cartItems.length && <Button text='Proceed to checkout' type='add-to' onClick={checkoutCart}/>}
+      { !!cartItems.length && 
+        <>
+          <form action="" onSubmit={(e) => {checkoutCart(e)}}>
+            <label htmlFor="name">Nombre</label>
+            <input type="text" name='name' ref={nameRef}/>
+            <label htmlFor="mail">Mail</label>
+            <input type="text" name='mail' ref={mailRef} />
+            <Button text='Proceed to checkout' type='add-to' onClick={checkoutCart}/>
+          </form>
+        </>
+      }
     </div>
   );
 };

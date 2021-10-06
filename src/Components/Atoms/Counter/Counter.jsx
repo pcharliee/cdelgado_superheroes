@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 import './Counter.scss';
 
 function Counter(props) {
-  const { cartItems, setCartItems } = useCart();
+  const { cartItems, setCartItems, setPrice } = useCart();
   const [ itemDetails, setItemDetails ] = useState({ 
     count: props.item.quantity,
     price: props.item.price
@@ -25,7 +25,7 @@ function Counter(props) {
       return item;
     })
     setCartItems(updatedCartItems);
-    props.setPrice(prevState => prevState - unitPrice);
+    setPrice(prevState => prevState - unitPrice);
   };
 
   const handlePlusClick = () => {
@@ -40,7 +40,7 @@ function Counter(props) {
       return item;
     });
     setCartItems(updatedCartItems);
-    props.setPrice(prevState => prevState + unitPrice);
+    setPrice(prevState => prevState + unitPrice);
   };
 
   return (

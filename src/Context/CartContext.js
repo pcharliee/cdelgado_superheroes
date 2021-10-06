@@ -1,12 +1,28 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 export const CartContext = createContext([]);
 
 export const CartProvider = ({ children }) => {
   const [ cartItems, setCartItems ] = useState([]);
+  const [ price, setPrice ] = useState(() => {
+    if(!cartItems.length) return 0;
+    var currentPrice = 0;
+    cartItems?.map(item => {
+      return currentPrice += item.price;
+    });
+    return currentPrice;
+  });
+
+  useEffect(() => {
+    var currentPrice = 0;
+    cartItems?.map(item => {
+      return currentPrice += (item.price * item.quantity);
+    });
+    setPrice(currentPrice);
+  }, [cartItems]);
 
   return (
-    <CartContext.Provider value={{ cartItems, setCartItems }}>
+    <CartContext.Provider value={{ cartItems, setCartItems, price, setPrice }}>
       {children}
     </CartContext.Provider>
   )
