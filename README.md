@@ -3,6 +3,7 @@ Proyecto React - Coderhouse
 After downloading the project, run `npm install` and then `npm run start` to get the proyect started.
 
 This app was designed Mobile-First. So go click that F12 key and select your favorite mobile model 😜
+
 Make sure to log in for a faster checkout and a chance to see your previous orders on `/my-orders` section
 
 In the `Super Coach` section, you will be able to search for almost any Superhero.
