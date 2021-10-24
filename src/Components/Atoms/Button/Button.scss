@@ -9,6 +9,11 @@
     color: rgb(0, 150, 106);
     border: 1px solid;
     border-color:rgb(0, 150, 106);
+    &:focus {
+      background:rgb(0, 150, 106);
+      color: rgb(255, 255, 255);
+      animation: pulsate 1500ms ease-in-out infinite;
+    }
   }
   &.checkout {
     border-radius: 0 0 5px 5px;
@@ -17,4 +22,52 @@
     color: #af070f;
     background: rgb(255, 255, 255);
   }
+  &.remove-icon {
+    background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.00195 0.878052C3.61953 0.878052 0.876953 3.62063 0.876953 7.00305C0.876953 10.3855 3.61953 13.1281 7.00195 13.1281C10.3844 13.1281 13.127 10.3855 13.127 7.00305C13.127 3.62063 10.3844 0.878052 7.00195 0.878052ZM9.26328 9.33L8.36094 9.3259L7.00195 7.70579L5.64434 9.32454L4.74063 9.32864C4.68047 9.32864 4.63125 9.28079 4.63125 9.21926C4.63125 9.19329 4.64082 9.16868 4.65723 9.14817L6.43594 7.02903L4.65723 4.91125C4.64071 4.89122 4.63154 4.86613 4.63125 4.84016C4.63125 4.78 4.68047 4.73079 4.74063 4.73079L5.64434 4.73489L7.00195 6.355L8.35957 4.73626L9.26191 4.73215C9.32207 4.73215 9.37129 4.78 9.37129 4.84153C9.37129 4.8675 9.36172 4.89211 9.34531 4.91262L7.56934 7.0304L9.34668 9.14954C9.36309 9.17004 9.37266 9.19465 9.37266 9.22063C9.37266 9.28079 9.32344 9.33 9.26328 9.33Z' fill='%2331373D'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: block;
+    min-width: 22px;
+    max-width: 22px;
+    height: 22px;
+    cursor: pointer;
+  }
+
+  &.login {
+    color: rgb(255, 255, 255);
+    border: 1px #af070f solid;
+    background: transparent;
+  }
+
+  &.img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 60px;
+    &.marvel {
+      background-image: url('../../../Misc/Media/marvel.png');
+    }
+    &.dc {
+      background-image: url('../../../Misc/Media/DC.png');
+    }
+    &.abc {
+      background-image: url('../../../Misc/Media/ABC.png');
+    }
+    &.dark-horse {
+      background-image: url('../../../Misc/Media/darkhorse.png');
+    }
+    &.george-lucas {
+      background-image: url('../../../Misc/Media/george.png');
+    }
+    &.nbc {
+      background-image: url('../../../Misc/Media/NBC.png');
+    }
+  }
+}
+
+@keyframes pulsate {
+  0% { transform: scale(1.05)}
+  50% { transform: scale(1) }
+  100% { transform: scale(1.05) }
 }

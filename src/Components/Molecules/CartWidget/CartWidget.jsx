@@ -15,7 +15,7 @@ function CartWidget () {
       newQuantity += item.quantity
     })
    return newQuantity;
-  }
+  };
   
   const renderCurrentCart = () => {
     if (!showCurrentCart || !cartItems.length ) return;
@@ -39,9 +39,11 @@ function CartWidget () {
   return (
     <>
     { renderCurrentCart() }
-      <div className='cart-widget' onClick={() => {
+      <div
+        className='cart-widget'
+        onClick={() => {
         setShowCurrentCart(prevState => !prevState);
-      }}>
+        }}>
         <p>{ updatedCartQuantity() }</p>
       </div>
     </>

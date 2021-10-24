@@ -13,7 +13,6 @@ function HeroDetails() {
   const [ loading, setLoading ] = useState(false);
   const [ disabled, setDisabled ] = useState(false);
   const { cartItems, setCartItems } = useCart();
-
   const { id } = useParams();
   const history = useHistory();
 
@@ -21,16 +20,22 @@ function HeroDetails() {
     setLoading(prevState => !prevState);
     const db = getFirestore();
     const heroesCollection = db.collection('heroes');
-    const hero = heroesCollection.doc(id)
-      hero.get()
-      .then(doc => setHeroDetails(doc.data()))
-      setLoading(prevState => !prevState)
+    let parsedId = parseInt(id)
+    heroesCollection
+      .where('id','==', parsedId)
+      .get()
+      .then(querySnapshot => {
+        if (querySnapshot.empty) return history.push('/not-found');
+        const character = querySnapshot.docs[0].data();
+        setHeroDetails(character);
+        setLoading(prevState => !prevState)
+      })
   }, [id]);
 
   const handleAddClick = (id) => {
     let alreadyExists = false;
     cartItems.forEach(item => {
-      if (item.id == id) {
+      if (item.id === id) {
         alert('Item already in the cart');
         alreadyExists = true;
       }
@@ -39,8 +44,40 @@ function HeroDetails() {
       setCartItems(prevState => [...prevState, heroDetails]);
   };
 
+  const renderHeroAttributes = () => {
+    if (!heroDetails) return;
+    let icon;
+    return Object.keys(heroDetails.powerstats).map((stat, index) => {
+      switch (stat) {
+        case 'speed':
+          icon = '🏃'
+          break;
+        case 'strength':
+          icon = '🏋️‍♀️'
+          break;
+        case 'durability':
+          icon = '😰'
+          break;
+        case 'combat':
+          icon = '🥊'
+          break;
+        case 'power':
+          icon = '🔥'
+          break;
+        case 'intelligence':
+          icon = '💡'
+          break;
+        default:
+          break;
+      }
+
+      let statValue = heroDetails.powerstats[stat]
+      return <li key={index}>{icon} <span>{stat}: {statValue}</span></li>
+    })
+  }
+
   const handleGoBackClick = () => {
-    history.push('/super-coach');
+    history.goBack();
   };
 
   return (
@@ -51,7 +88,7 @@ function HeroDetails() {
           <div className="hero-details-img-bio-container">
             <Image img={heroDetails?.images.lg} alt={heroDetails?.name}/>
             <aside className='hero-details-bio-container'>
-              <Title text={heroDetails?.name} />
+              <Title text={`${heroDetails?.name} [$${heroDetails?.price}]`} />
               <p>Nombre: <span>{heroDetails?.biography.fullName}</span></p>
               <p>Raza: <span>{heroDetails?.appearance.race}</span></p>
               <p>Altura: <span>{heroDetails?.appearance.height[1]}</span></p>
@@ -60,19 +97,24 @@ function HeroDetails() {
           </div>
           <div className='hero-details-additional'>
             <div className='hero-details-additional-bio'>
+              <ul className='hero-stats-container'>
+              { renderHeroAttributes() }
+              </ul>
               <h5>Conexiones:</h5><p>{heroDetails?.connections.groupAffiliation}</p>
               <h5>Base:</h5><p>{heroDetails?.work.base}</p>
               <h5>Ocupación:</h5><p>{heroDetails?.work.occupation}</p>
             </div>
-           <Button
-            text='Volver'
-            type=''
-            onClick={handleGoBackClick} />
-          <Button
-            text='Agregar al carrito'
-            type='add-to'
-            disabled={disabled}
-            onClick={ () => handleAddClick(heroDetails.id) } />
+            <div className='btn-container'>
+              <Button
+                text='Go back'
+                type=''
+                onClick={handleGoBackClick} />
+              <Button
+                text='Add to cart'
+                type='add-to'
+                disabled={disabled}
+                onClick={ () => handleAddClick(heroDetails.id) } />
+            </div>
           </div>
         </section>
       }

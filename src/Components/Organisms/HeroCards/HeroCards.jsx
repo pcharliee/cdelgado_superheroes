@@ -51,8 +51,8 @@ function HeroCards(props) {
   const renderCard = () => {
     return selectedCards?.map(card => {
       return (
-        <Link to={`super-coach/${card._id}`} key={card.id}>
-          <HeroCard character={card} />
+        <Link to={`super-coach/${card.id}`} key={card.id}>
+          <HeroCard data={card} />
         </Link>
       ) 
     });
@@ -72,7 +72,9 @@ function HeroCards(props) {
       </div>
       <HeroSuggestions showSelection={showSelection} searchSuggestions={character} />
       { renderNotFound() }
-      { renderCard() }
+      <div className='hero-cards-selection'>
+        { renderCard() }
+      </div>
     </section>
   );
 };

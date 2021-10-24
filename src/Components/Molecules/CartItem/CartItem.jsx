@@ -2,6 +2,7 @@ import React from 'react';
 import Image from '../../Atoms/Image/Image';
 import Title from '../../Atoms/Title/Title';
 import Counter from '../../Atoms/Counter/Counter';
+import Button from '../../Atoms/Button/Button';
 import './CartItem.scss'
 
 function CartItem(props) {
@@ -15,8 +16,8 @@ function CartItem(props) {
         <div className='cart-item-details-container'>
           <Title text={props.item.name} />
           <Counter item={props.item} />
-          <p className='cart-item-remove-icon' onClick={handleClick}>X</p>
         </div>
+      <Button type='remove-icon' onClick={handleClick} />
     </div>
   )
 };

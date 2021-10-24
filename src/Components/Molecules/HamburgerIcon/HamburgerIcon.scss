@@ -75,6 +75,36 @@
   }
 }
 
+@media only screen and (min-width: 800px) {
+  .list-item-container {
+    list-style-type: none;
+    position: initial;
+    background: none;
+    display: flex;
+    flex-flow: row nowrap;
+    width: auto;
+    padding: 0;
+    gap: 3px;
+    height: auto;
+    a {
+      width: auto;
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      li {
+        background: none;
+        color: white;
+        padding: 10px;
+        &:hover {
+          background-color: rgb(255, 255, 255);
+          color: rgb(0, 0, 0);
+          transition: all 300ms ease-in-out;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
 @keyframes toggleMenu {
   0% { opacity: 0; left: -80px }
   50% { opacity: 0.3;}

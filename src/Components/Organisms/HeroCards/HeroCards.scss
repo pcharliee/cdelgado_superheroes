@@ -18,3 +18,27 @@
     }
   }
 }
+
+@media only screen and (min-width: 800px) {
+  .hero-cards-search-bar {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    margin-top: 10px;
+    label {
+      font-size: 1.3rem;
+      color: rgb(255, 255, 255)
+    }
+    input {
+      padding: 5px 0 5px 10px;
+      width: 220px;
+    }
+  }
+
+  .hero-cards-selection {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}

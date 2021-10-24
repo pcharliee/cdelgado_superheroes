@@ -1,7 +1,14 @@
 .not-found-container {
+  color: white;
+  font-size: 0.8rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
   color: rgb(255, 255, 255);
   font-size: 0.8rem;
   text-align: center;
+  gap: 10px;
   img {
     width: 300px;
     height: auto;

@@ -1,12 +1,11 @@
-import React from 'react';
-import './Carousel.scss';
+import React, { useEffect } from 'react';
 import bane from '../../../Misc/Media/bane.jpg';
-import superman from '../../../Misc/Media/superman.jpeg'
-import heroAcademy from '../../../Misc/Media/hero-academy.jpeg'
-import CarouselImage from '../../Atoms/CarouselImage/CarouselImage';
+import superman from '../../../Misc/Media/superman.jpeg';
+import heroAcademy from '../../../Misc/Media/hero-academy.jpeg';
+import './Carousel.scss';
 
 function Carousel() {
-  const IMAGES = [
+  const images = [
     { id: 1,
       img: bane, 
       alt: 'Cartoon Bane clenching his fists' },
@@ -18,16 +17,28 @@ function Carousel() {
       alt: 'Cartoon Marvel Heroes' }
   ];
 
+  useEffect(() => {
+    let carouselImages = document.querySelectorAll('.carousel-image');
+    setInterval(() => {
+      let randomNumber = Math.floor(Math.random()*3);
+      let randomImage = carouselImages[randomNumber];
+      randomImage.classList.contains('active')
+      ? randomImage.classList.remove('active')
+      : randomImage.classList.add('active');
+    }, 2000);
+  }, [])
+
   return (
     <section className='carousel-container'>
       <div className='carousel-img-container'>
-        {IMAGES.map((image, index) => {
+        {images.map((image, index) => {
           return (
-              <CarouselImage 
-                id={image.id} 
-                key={index} 
-                img={image.img} 
-                alt={image.alt} />
+            <img
+              key={image.id}
+              id={image.id}
+              className='carousel-image active'
+              src={image.img}
+              alt={image.alt} />
             )
           }
         )}

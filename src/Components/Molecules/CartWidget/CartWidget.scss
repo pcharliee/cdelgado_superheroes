@@ -13,6 +13,8 @@
   right: 10px;
   top: 65px;
   background: rgb(255, 255, 255);
+  border-radius: 0 0 5px 5px;
+  z-index: 9999;
   .hero-suggestions-container {
     max-height: 212px;
   }

@@ -4,10 +4,10 @@ import Title from '../../Atoms/Title/Title';
 import './HeroSuggestionItem.scss'
 
 function HeroSuggestionItem(props) {
-  const { img, alt, text, publisher } = props;
+  const { img, alt, text, publisher, alreadyAdded } = props;
 
   return (
-    <div className='hero-suggestion'>
+    <div className={!alreadyAdded ? `hero-suggestion` : `hero-suggestion added`}>
       <Image img={img} alt={alt} />
       <div className='hero-suggestion-details'>
         <Title text={text} />
