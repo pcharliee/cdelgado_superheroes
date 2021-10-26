@@ -113,23 +113,27 @@ function Cart() {
   };
 
   return (
-    <div className='cart-items-container'>
-      <Button text='Close' onClick={closeCart}/>
-      <Title text={`${currentUserName}'s shopping cart`}/>
-      { renderEmptyCart() }
-      { renderCartItems() }
-      { !!cartItems.length && 
-        <>
-          <form
-            className='cart-form-container'
-            action=""
-            onSubmit={(e) => {checkoutCart(e)}}>
-          { renderCheckoutForm() }
-          <Button text={checkoutText} type='add-to' />
-          <p className='cart-total'>Total: USD${price}</p>
-          </form>
-        </>
-      }
+    <div className='cart-container'>
+      <div className='cart-items-container'>
+        <Button text='Close' onClick={closeCart}/>
+        <Title text={`${currentUserName}'s shopping cart`}/>
+        { renderEmptyCart() }
+        <div className='cart-items'>
+          { renderCartItems() }
+        </div>
+        { !!cartItems.length && 
+          <>
+            <form
+              className='cart-form-container'
+              action=""
+              onSubmit={(e) => {checkoutCart(e)}}>
+            { renderCheckoutForm() }
+            <Button text={checkoutText} type='add-to' />
+            <p className='cart-total'>Total: USD${price}</p>
+            </form>
+          </>
+        }
+      </div>
     </div>
   );
 };

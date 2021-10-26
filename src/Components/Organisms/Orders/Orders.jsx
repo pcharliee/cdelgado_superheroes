@@ -1,33 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { getFirestore } from '../../../firebase/index.js';
+import React from 'react';
 import { useUser } from '../../../Context/UserContext.js';
 import Loading from '../../Atoms/Loading/Loading';
 import Title from '../../Atoms/Title/Title.jsx';
 import Button from '../../Atoms/Button/Button.jsx';
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import './Orders.scss';
 
 function Orders() {
-  const [ loading, setLoading ] = useState(false);
-  const { currentUser, currentUserOrders } = useUser();
+  const { loading, currentUserOrders } = useUser();
   const MySwal = withReactContent(Swal)
-
-  useEffect(() => {
-    if (!currentUser) return;
-    setLoading(prevState => !prevState);
-    const db = getFirestore();
-    const ordersCollection = db.collection("orders");
-    ordersCollection
-      .where('buyer.email', '==', currentUser.email)
-      .get()
-      .then(querySnapshot => {
-        querySnapshot.docs.map(doc => {
-          console.log(doc.data())
-        })
-        setLoading(prevState => !prevState)
-      }) 
-  }, []);
 
   const handleClick = (order) => {
     let items = order.items.map(item => {
@@ -37,8 +19,8 @@ function Orders() {
       title: order.buyer.name,
       text: `You bought ${items.join(', ')} for USD$ ${order.totalPrice}`,
       confirmButtonColor: '#af070f',
-    })
-  }
+    });
+  };
 
   const renderOrders = () => {
     return currentUserOrders?.map((order, index) => {
@@ -61,8 +43,8 @@ function Orders() {
         </div>
       </article>
      )
-    })
-  }
+    });
+  };
 
   return (
     <div className='my-orders-container'>
@@ -77,7 +59,7 @@ function Orders() {
         </>
       }
     </div>
-  )
-}
+  );
+};
 
-export default Orders
+export default Orders;

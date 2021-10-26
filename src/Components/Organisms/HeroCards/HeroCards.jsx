@@ -44,7 +44,7 @@ function HeroCards(props) {
 
   const renderNotFound = () => {
     if (!selectedCards.length) {
-      return  <NotFound text='No hay cartas para mostrar' />
+      return  <NotFound text="I can't show cards if you don't add any" />
     };
   };
 
@@ -61,7 +61,7 @@ function HeroCards(props) {
   return (
     <section className='hero-cards-container'>
       <div className='hero-cards-search-bar'>
-        <label htmlFor="HeroSearch">Encuentra tu Héroe</label>
+        <label htmlFor="HeroSearch">Write the name of a hero below</label>
         <input
           name='HeroSearch'
           type='text'

@@ -40,6 +40,7 @@ function App() {
             { !loading &&
               <Switch>
                 <Route exact path='/' component={MainPage} />
+                <Route exact path='/cdelgado_superheroes' component={MainPage} />
                 <Route exact path='/super-coach'>
                   <HeroCards characters={characters} />
                 </Route>

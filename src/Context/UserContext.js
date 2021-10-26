@@ -7,17 +7,20 @@ export const UserContext = createContext({});
 export const UserProvider = (props) => {
   const [ currentUser, setCurrentUser ] = useState(null);
   const [ currentUserCards, setCurrentUserCards ] = useState([]);
-  const [ currentUserOrders, setCurrentUserOrders ] = useState([])
+  const [ currentUserOrders, setCurrentUserOrders ] = useState([]);
+  const [ loading, setLoading ] = useState(false);
   const provider = new GoogleAuthProvider();
 
   useEffect(() => {
     let user = JSON.parse(localStorage.getItem('user'));
     if (!!user) {
+      setLoading(prevState => !prevState)
       setCurrentUser(user);
       const db = getFirestore();
       const ordersCollection = db.collection("orders");
       ordersCollection
         .where('buyer.email', '==', user.email)
+        .orderBy('date', 'desc')
         .get()
         .then(querySnapshot => {
           const userCards = [];
@@ -28,9 +31,13 @@ export const UserProvider = (props) => {
             setCurrentUserOrders(userOrders);
             doc.data().items.forEach(item => {
               userCards.push(item);
-              setCurrentUserCards(userCards);
+              
             });
+            return userCards
           });
+        }).then((userCards) => {
+          setCurrentUserCards(userCards)
+          setLoading(prevState => !prevState)
         });
     };
   }, []);
@@ -53,7 +60,8 @@ export const UserProvider = (props) => {
   };
 
   return (
-    <UserContext.Provider value={{ currentUser, loginUser, setCurrentUser, currentUserCards, currentUserOrders }}>
+    <UserContext.Provider 
+      value={{ currentUser, loginUser, setCurrentUser, currentUserCards, currentUserOrders, loading }}>
       {props.children}
     </UserContext.Provider>
   )
