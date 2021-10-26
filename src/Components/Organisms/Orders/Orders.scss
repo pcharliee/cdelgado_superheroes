@@ -1,0 +1,90 @@
+.my-orders-container {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  h2 { 
+    color:rgb(255, 255, 255);
+    margin: 0 0 16px;
+  }
+  .orders-summary { color: rgb(255, 255, 255)}
+  .my-orders {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 5px;
+    height: 65vh;
+    overflow: auto;
+    .order-container {
+      border: 1px grey solid;
+      background: rgb(255, 255, 255);
+      border-radius: 5px;
+      width: 80vw;
+      padding: 10px;
+      .order-details {
+        h5, h6, p { margin: 0 };
+        p { color: grey; }
+        span { color: black}
+        .order-date-details,
+        .order-quantity-details {
+          display: flex;
+          justify-content: space-between;
+        }
+        .order-tracking-details {
+          margin: 5px 0;
+          font-size: 0.6rem
+        }
+        .order-quantity-details {
+          margin: 10px 0 0 0;
+          font-size: 0.8rem;
+        }
+        button {
+          height: 20px;
+          font-size: 0.6rem;
+          margin: 5px 0 0 0;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .my-orders-container {
+
+    h2 { 
+      color:rgb(255, 255, 255);
+      margin: 0 0 16px;
+    }
+    .orders-summary { color: rgb(255, 255, 255)}
+    .my-orders {
+
+      .order-container {
+        width: 50vw;
+        .order-details {
+          h5, h6, p { margin: 0 };
+          p { color: grey; }
+          span { color: black}
+          .order-date-details,
+          .order-quantity-details {
+            display: flex;
+            justify-content: space-between;
+          }
+          .order-tracking-details {
+            margin: 5px 0;
+            font-size: 1rem
+          }
+          .order-quantity-details {
+            margin: 10px 0 0 0;
+            font-size: 1rem;
+          }
+          button {
+            height: 20px;
+            font-size: 1rem;
+            margin: 5px 0 0 0;
+          }
+        }
+      }
+    }
+  }
+}

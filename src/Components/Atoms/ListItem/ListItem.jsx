@@ -1,17 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './ListItem.scss'
+import './ListItem.scss';
 
 function ListItem (props) {
-  const { url, text, handleClick } = props;
   
   const onListItemClick = () => {
-    handleClick();
+    props.handleClick();
   };
 
   return (
-    <Link to={`/${url}`}>
-      <li className='list-item' onClick={onListItemClick}>{text}</li>
+    <Link to={`/${props.url}`}>
+      <li className='list-item' onClick={onListItemClick}>{props.text}</li>
     </Link>
   )
 };

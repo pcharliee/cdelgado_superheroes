@@ -50,10 +50,10 @@
 
 .list-item-container {
   position: absolute;
-  background-color: rgb(140, 56, 46);
+  background-color: rgb(54, 51, 51);
   list-style-type: none;
   padding: 15px 0;
-  top: 60px;
+  top: 55px;
   left: 0;
   width: 100vw;
   height: 20vh;
@@ -71,6 +71,36 @@
     li {
       background-color: rgb(255, 255, 255);
       padding: 10px;
+    }
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .list-item-container {
+    list-style-type: none;
+    position: initial;
+    background: none;
+    display: flex;
+    flex-flow: row nowrap;
+    width: auto;
+    padding: 0;
+    gap: 3px;
+    height: auto;
+    a {
+      width: auto;
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      li {
+        background: none;
+        color: white;
+        padding: 10px;
+        &:hover {
+          background-color: rgb(255, 255, 255);
+          color: rgb(0, 0, 0);
+          transition: all 300ms ease-in-out;
+          border-radius: 5px;
+        }
+      }
     }
   }
 }

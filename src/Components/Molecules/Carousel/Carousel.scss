@@ -7,21 +7,29 @@
     scroll-snap-type: x mandatory;
     &::-webkit-scrollbar { width: 1rem };
   }
-  .carousel-buttons-container{
+  .carousel-image {
+    width: 100vw;
+    height: auto;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .carousel-container {
     display: flex;
-    flex-flow: row nowrap;
-    width: 100%;
+    width: 60%;
+    margin: auto;
     justify-content: center;
-    gap: 10px;
-    .carousel-buttons {
-      display: flex;
-      flex-flow: row nowrap;
-      width: 15px;
-      height: 5px;
-      border-radius: 15px;
-      background-color: rgb(150, 150, 150);
-      &:active {
-        background-color: blue;
+    .carousel-img-container {
+      height: 45vh;
+      width: 685px;
+    }
+    .carousel-image {
+      display: none;
+      width: auto;
+      &.active {
+        display: block;
       }
     }
   }

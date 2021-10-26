@@ -6,7 +6,7 @@ export const CartProvider = ({ children }) => {
   const [ cartItems, setCartItems ] = useState([]);
   const [ price, setPrice ] = useState(() => {
     if(!cartItems.length) return 0;
-    var currentPrice = 0;
+    let currentPrice = 0;
     cartItems?.map(item => {
       return currentPrice += item.price;
     });
@@ -14,7 +14,7 @@ export const CartProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    var currentPrice = 0;
+    let currentPrice = 0;
     cartItems?.map(item => {
       return currentPrice += (item.price * item.quantity);
     });

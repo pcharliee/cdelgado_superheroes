@@ -2,5 +2,34 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+
+  h2 {
+    color: rgb(255, 255, 255);
+  }
+
+  .btn-categories-container {
+    display: flex;
+    width: 60%;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .academy-cards-container {
+    .btn-categories-container {
+      display: flex;
+      width: 60%;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      .btn.img {
+        width: 100px;
+      }
+    }
+  }
 }

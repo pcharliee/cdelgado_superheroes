@@ -44,15 +44,15 @@ function HeroCards(props) {
 
   const renderNotFound = () => {
     if (!selectedCards.length) {
-      return  <NotFound text='No hay cartas para mostrar' />
+      return  <NotFound text="I can't show cards if you don't add any" />
     };
   };
 
   const renderCard = () => {
     return selectedCards?.map(card => {
       return (
-        <Link to={`super-coach/${card._id}`} key={card.id}>
-          <HeroCard character={card} />
+        <Link to={`super-coach/${card.id}`} key={card.id}>
+          <HeroCard data={card} />
         </Link>
       ) 
     });
@@ -61,7 +61,7 @@ function HeroCards(props) {
   return (
     <section className='hero-cards-container'>
       <div className='hero-cards-search-bar'>
-        <label htmlFor="HeroSearch">Encuentra tu Héroe</label>
+        <label htmlFor="HeroSearch">Write the name of a hero below</label>
         <input
           name='HeroSearch'
           type='text'
@@ -72,7 +72,9 @@ function HeroCards(props) {
       </div>
       <HeroSuggestions showSelection={showSelection} searchSuggestions={character} />
       { renderNotFound() }
-      { renderCard() }
+      <div className='hero-cards-selection'>
+        { renderCard() }
+      </div>
     </section>
   );
 };

@@ -46,8 +46,8 @@ function Counter(props) {
   return (
     <div className='counter-buttons-container'>
       <div className="counter-item-details">
-        <p>Unit price: {unitPrice}</p>
-        <p>Price: {props.item.price * itemDetails.count}</p>
+        <p>Unit price: <span>${unitPrice}</span></p>
+        <p>Price: <span>${props.item.price * itemDetails.count}</span></p>
       </div>
       <div className="counter-buttons">
         <Button text="-" onClick={handleMinusClick} />

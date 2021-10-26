@@ -2,8 +2,7 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-  align-items: center;
-  border: 1px rgb(140, 56, 46) dotted;
+  align-items: flex-start;
   border-radius: 5px;
   gap: 5px;
   .counter-buttons {
@@ -11,7 +10,9 @@
     flex-flow: row nowrap;
     align-items: center;
     width: 100px;
-    justify-content: space-around;
+    justify-content: space-between;
+    border: 1px rgb(140, 56, 46) solid;
+    border-radius: 5px;
   }
   p {
     margin: 0;

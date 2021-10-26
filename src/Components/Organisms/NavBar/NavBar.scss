@@ -4,6 +4,13 @@
   align-items: center;
   padding: 10px;
   position: relative;
+  .login-container {
+    display: flex;
+    img {
+      height: 50px;
+      border-radius: 50%;
+    }
+  }
   p {
     color: white;
   }

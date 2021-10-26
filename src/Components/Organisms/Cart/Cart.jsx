@@ -1,17 +1,20 @@
 import React, { useState, useRef } from 'react';
-import { useCart } from '../../../Context/CartContext';
 import { useHistory } from 'react-router';
+import { useCart } from '../../../Context/CartContext';
+import { useUser } from '../../../Context/UserContext';
 import { getFirestore } from '../../../firebase/index.js';
 import Title from '../../Atoms/Title/Title';
 import CartItem from '../../Molecules/CartItem/CartItem';
 import Button from '../../Atoms/Button/Button';
-import Loading from '../../Atoms/Loading/Loading';
 import './Cart.scss';
 
 function Cart() {
-  const { cartItems, setCartItems, price, setPrice } = useCart();
+  const { cartItems, setCartItems, price } = useCart();
   const [ newOrder, setNewOrder ] = useState({});
+  const [ checkoutText, setCheckoutText ] = useState('Proceed to checkout');
+  const { currentUser } = useUser();
   const history = useHistory();
+  let currentUserName = !!currentUser ? currentUser.displayName.split(' ')[0] : 'Stranger';
   let nameRef = useRef(null);
   let mailRef = useRef(null);
 
@@ -23,6 +26,7 @@ function Cart() {
   };
 
   const renderCartItems = () => {
+    console.log('cr', currentUser)
     return cartItems?.map(item => {
       return (
         <CartItem
@@ -45,60 +49,91 @@ function Cart() {
     e.preventDefault();
     return Promise.resolve({})
       .then(() => {
-        let name = nameRef.current.value.toString();
-        let email = mailRef.current.value.toString();
+        let name = !currentUser ? nameRef.current.value.toString() : ''
+        let email = !currentUser ? mailRef.current.value.toString(): ''
         let currentOrder = { 
           buyer: { 
-            name: name,
-            email: email,
+            name: currentUser?.displayName || name,
+            email: currentUser?.email || email,
           },
           items: cartItems,
           totalPrice: price,
           date: new Date().toLocaleDateString()
         }
         setNewOrder(currentOrder);
+        setCheckoutText('Checking out...');
         checkoutCartSuccess(currentOrder);
       })
     };
 
-    const checkoutCartSuccess = (newOrder) => {
-      const db = getFirestore();
-      const ordersCollection = db.collection("orders");
-      ordersCollection
-        .add(newOrder)
-        .then((docRef) => {
-          return docRef
-        })
-        .then(docRef => {
-          let items = cartItems.map(item => {
-            return item.name;
-          });
-          let orderId = docRef.id;
-          window.alert(`${newOrder.buyer.name} Thank you for shopping. You've bought "${items.join(', ')}" for USD$ ${price}. You will receive further information on your email ${newOrder.buyer.email} your Order ID is: ${orderId}...`)
-        })
-        .then(() => {
-          setCartItems([]);
+  const checkoutCartSuccess = (newOrder) => {
+    const db = getFirestore();
+    const ordersCollection = db.collection("orders");
+    ordersCollection
+      .add(newOrder)
+      .then((docRef) => {
+        return docRef
+      })
+      .then(docRef => {
+        let items = cartItems.map(item => {
+          return item.name;
         });
-      };
+        let orderId = docRef.id;
+        window.alert(`${newOrder.buyer.name} Thank you for shopping. You've bought "${items.join(', ')}" for USD$ ${price}. You will receive further information on your email ${newOrder.buyer.email} your Order ID is: ${orderId}...`)
+      })
+      .then(() => {
+        setCartItems([]);
+        history.push('/')
+        window.location.reload();
+      });
+    };
+
+  const userCheckoutForm = () => {
+    return (
+      <>
+        <p className='prepopulated-form-info'>Buyer: {currentUser.displayName}</p>
+        <p className='prepopulated-form-info'>Email: {currentUser.email}</p>
+      </>
+    ); 
+  };
+
+  const renderCheckoutForm = () => {
+    return (
+    !!currentUser 
+    ? userCheckoutForm() 
+    : (
+      <>
+        <label htmlFor="name">Nombre</label>
+        <input type="text" name='name' ref={nameRef}/>
+        <label htmlFor="mail">Mail</label>
+        <input type="text" name='mail' ref={mailRef} />
+      </>
+      )
+    );
+  };
 
   return (
-    <div className='cart-items-container'>
-      <Title text="Tu carrito"/>
-      { renderEmptyCart() }
-      { renderCartItems() }
-      <p>Total: {price}</p>
-      <Button text='Close Cart' onClick={closeCart}/>
-      { !!cartItems.length && 
-        <>
-          <form action="" onSubmit={(e) => {checkoutCart(e)}}>
-            <label htmlFor="name">Nombre</label>
-            <input type="text" name='name' ref={nameRef}/>
-            <label htmlFor="mail">Mail</label>
-            <input type="text" name='mail' ref={mailRef} />
-            <Button text='Proceed to checkout' type='add-to' onClick={checkoutCart}/>
-          </form>
-        </>
-      }
+    <div className='cart-container'>
+      <div className='cart-items-container'>
+        <Button text='Close' onClick={closeCart}/>
+        <Title text={`${currentUserName}'s shopping cart`}/>
+        { renderEmptyCart() }
+        <div className='cart-items'>
+          { renderCartItems() }
+        </div>
+        { !!cartItems.length && 
+          <>
+            <form
+              className='cart-form-container'
+              action=""
+              onSubmit={(e) => {checkoutCart(e)}}>
+            { renderCheckoutForm() }
+            <Button text={checkoutText} type='add-to' />
+            <p className='cart-total'>Total: USD${price}</p>
+            </form>
+          </>
+        }
+      </div>
     </div>
   );
 };
